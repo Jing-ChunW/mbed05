@@ -7,16 +7,19 @@ uLCD_4DGL uLCD(D1, D0, D2); // serial tx, serial rx, reset pin;
 
 int main()
 {
+    uLCD.reset();
+
     // basic printf demo = 16 by 18 characters on screen
+    uLCD.color(BLUE);
     uLCD.printf("\n107011133\n"); //Default Green on black text
-    uLCD.printf("\n  Starting Demo...");
+    //uLCD.printf("\n  Starting Demo...");
     uLCD.text_width(4); //4X size text
     uLCD.text_height(4);
-    uLCD.background_color(0xFFFFFF);  //white
-    uLCD.color(BLUE);
-    for (int i=10; i>=0; --i) {
+//    uLCD.background_color(0xFFFFFF);  //white
+    uLCD.color(GREEN);
+    for (int i=30; i>=0; --i) {
         uLCD.locate(1,2);
         uLCD.printf("%2d",i);
-        ThisThread::sleep_for(500ms);
+        ThisThread::sleep_for(1ms);
     }
 }
